@@ -1,8 +1,7 @@
 #include "nuklear.h"
 #include "nuklear_internal.h"
 
-NK_INTERN void
-nk_pool_init(struct nk_pool *pool, struct nk_allocator *alloc,
+void nk_pool_init(struct nk_pool *pool, struct nk_allocator *alloc,
     unsigned int capacity)
 {
     nk_zero(pool, sizeof(*pool));
@@ -12,8 +11,7 @@ nk_pool_init(struct nk_pool *pool, struct nk_allocator *alloc,
     pool->pages = 0;
 }
 
-NK_INTERN void
-nk_pool_free(struct nk_pool *pool)
+void nk_pool_free(struct nk_pool *pool)
 {
     struct nk_page *iter = pool->pages;
     if (!pool) return;
@@ -25,8 +23,7 @@ nk_pool_free(struct nk_pool *pool)
     }
 }
 
-NK_INTERN void
-nk_pool_init_fixed(struct nk_pool *pool, void *memory, nk_size size)
+void nk_pool_init_fixed(struct nk_pool *pool, void *memory, nk_size size)
 {
     nk_zero(pool, sizeof(*pool));
     NK_ASSERT(size >= sizeof(struct nk_page));

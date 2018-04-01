@@ -30,8 +30,7 @@ const struct nk_rect nk_null_rect = {-8192.0f, -8192.0f, 16384, 16384};
     (it can actually approximate a lot more functions) can be
     found here: www.lolengine.net/wiki/oss/lolremez
 */
-NK_INTERN float
-nk_inv_sqrt(float number)
+float nk_inv_sqrt(float number)
 {
     float x2;
     const float threehalfs = 1.5f;
@@ -43,14 +42,12 @@ nk_inv_sqrt(float number)
     return conv.f;
 }
 
-NK_INTERN float
-nk_sqrt(float x)
+float nk_sqrt(float x)
 {
     return x * nk_inv_sqrt(x);
 }
 
-NK_INTERN float
-nk_sin(float x)
+float nk_sin(float x)
 {
     NK_STORAGE const float a0 = +1.91059300966915117e-31f;
     NK_STORAGE const float a1 = +1.00086760103908896f;
@@ -63,8 +60,7 @@ nk_sin(float x)
     return a0 + x*(a1 + x*(a2 + x*(a3 + x*(a4 + x*(a5 + x*(a6 + x*a7))))));
 }
 
-NK_INTERN float
-nk_cos(float x)
+float nk_cos(float x)
 {
     NK_STORAGE const float a0 = +1.00238601909309722f;
     NK_STORAGE const float a1 = -3.81919947353040024e-2f;
@@ -77,8 +73,7 @@ nk_cos(float x)
     return a0 + x*(a1 + x*(a2 + x*(a3 + x*(a4 + x*(a5 + x*(a6 + x*a7))))));
 }
 
-NK_INTERN nk_uint
-nk_round_up_pow2(nk_uint v)
+nk_uint nk_round_up_pow2(nk_uint v)
 {
     v--;
     v |= v >> 1;
@@ -210,8 +205,7 @@ NK_INTERN int nk_is_upper(int c){return (c >= 'A' && c <= 'Z') || (c >= 0xC0 && 
 NK_INTERN int nk_to_upper(int c) {return (c >= 'a' && c <= 'z') ? (c - ('a' - 'A')) : c;}
 NK_INTERN int nk_to_lower(int c) {return (c >= 'A' && c <= 'Z') ? (c - ('a' + 'A')) : c;}
 
-NK_INTERN void*
-nk_memcopy(void *dst0, const void *src0, nk_size length)
+void* nk_memcopy(void *dst0, const void *src0, nk_size length)
 {
     nk_ptr t;
     char *dst = (char*)dst0;
@@ -267,8 +261,7 @@ done:
     return (dst0);
 }
 
-NK_INTERN void
-nk_memset(void *ptr, int c0, nk_size size)
+void nk_memset(void *ptr, int c0, nk_size size)
 {
     #define nk_word unsigned
     #define nk_wsize sizeof(nk_word)
@@ -319,8 +312,7 @@ nk_memset(void *ptr, int c0, nk_size size)
     #undef nk_wmask
 }
 
-NK_INTERN void
-nk_zero(void *ptr, nk_size size)
+void nk_zero(void *ptr, nk_size size)
 {
     NK_ASSERT(ptr);
     NK_MEMSET(ptr, 0, size);
@@ -645,8 +637,7 @@ NK_API int
 nk_strmatch_fuzzy_string(char const *str, char const *pattern, int *out_score)
 {return nk_strmatch_fuzzy_text(str, nk_strlen(str), pattern, out_score);}
 
-NK_INTERN int
-nk_string_float_limit(char *string, int prec)
+int nk_string_float_limit(char *string, int prec)
 {
     int dot = 0;
     char *c = string;
@@ -689,15 +680,13 @@ nk_ifloord(double x)
     return (int)x;
 }
 
-NK_INTERN int
-nk_ifloorf(float x)
+int nk_ifloorf(float x)
 {
     x = (float)((int)x - ((x < 0.0f) ? 1 : 0));
     return (int)x;
 }
 
-NK_INTERN int
-nk_iceilf(float x)
+int nk_iceilf(float x)
 {
     if (x >= 0) {
         int i = (int)x;
@@ -740,8 +729,7 @@ nk_strrev_ascii(char *s)
     }
 }
 
-NK_INTERN char*
-nk_itoa(char *s, long n)
+char* nk_itoa(char *s, long n)
 {
     long i = 0;
     if (n == 0) {
@@ -765,8 +753,7 @@ nk_itoa(char *s, long n)
     return s;
 }
 
-NK_INTERN char*
-nk_dtoa(char *s, double n)
+char* nk_dtoa(char *s, double n)
 {
     int useExp = 0;
     int digit = 0, m = 0, m1 = 0;
@@ -1244,8 +1231,7 @@ nk_murmur_hash(const void * key, int len, nk_hash seed)
 }
 
 #ifdef NK_INCLUDE_STANDARD_IO
-NK_INTERN char*
-nk_file_load(const char* path, nk_size* siz, struct nk_allocator *alloc)
+char* nk_file_load(const char* path, nk_size* siz, struct nk_allocator *alloc)
 {
     char *buf;
     FILE *fd;

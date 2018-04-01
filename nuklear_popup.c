@@ -98,8 +98,7 @@ nk_popup_begin(struct nk_context *ctx, enum nk_popup_type type,
     }
 }
 
-NK_INTERN int
-nk_nonblock_begin(struct nk_context *ctx,
+int nk_nonblock_begin(struct nk_context *ctx,
     nk_flags flags, struct nk_rect body, struct nk_rect header,
     enum nk_panel_type panel_type)
 {

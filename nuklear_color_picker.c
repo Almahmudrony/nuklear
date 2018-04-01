@@ -1,4 +1,5 @@
 #include "nuklear.h"
+#include "nuklear_internal.h"
 
 NK_INTERN int
 nk_color_picker_behavior(nk_flags *state,

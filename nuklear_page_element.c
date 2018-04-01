@@ -41,8 +41,7 @@ nk_link_page_element_into_freelist(struct nk_context *ctx,
     }
 }
 
-NK_INTERN void
-nk_free_page_element(struct nk_context *ctx, struct nk_page_element *elem)
+void nk_free_page_element(struct nk_context *ctx, struct nk_page_element *elem)
 {
     /* we have a pool so just add to free list */
     if (ctx->use_pool) {

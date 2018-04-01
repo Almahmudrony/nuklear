@@ -103,8 +103,7 @@ nk_draw_option(struct nk_command_buffer *out,
     nk_widget_text(out, *label, string, len, &text, NK_TEXT_LEFT, font);
 }
 
-NK_INTERN int
-nk_do_toggle(nk_flags *state,
+int nk_do_toggle(nk_flags *state,
     struct nk_command_buffer *out, struct nk_rect r,
     int *active, const char *str, int len, enum nk_toggle_type type,
     const struct nk_style_toggle *style, const struct nk_input *in,

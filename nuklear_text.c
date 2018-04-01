@@ -118,8 +118,7 @@ nk_textedit_locate_coord(struct nk_text_edit *edit, float x, float y,
     else return i+r.num_chars;
 }
 
-NK_INTERN void
-nk_textedit_click(struct nk_text_edit *state, float x, float y,
+void nk_textedit_click(struct nk_text_edit *state, float x, float y,
     const struct nk_user_font *font, float row_height)
 {
     /* API click: on mouse down, move the cursor to the clicked location,
@@ -130,8 +129,7 @@ nk_textedit_click(struct nk_text_edit *state, float x, float y,
     state->has_preferred_x = 0;
 }
 
-NK_INTERN void
-nk_textedit_drag(struct nk_text_edit *state, float x, float y,
+void nk_textedit_drag(struct nk_text_edit *state, float x, float y,
     const struct nk_user_font *font, float row_height)
 {
     /* API drag: on mouse drag, move the cursor and selection endpoint
@@ -417,8 +415,7 @@ nk_textedit_text(struct nk_text_edit *state, const char *text, int total_len)
     }
 }
 
-NK_INTERN void
-nk_textedit_key(struct nk_text_edit *state, enum nk_keys key, int shift_mod,
+void nk_textedit_key(struct nk_text_edit *state, enum nk_keys key, int shift_mod,
     const struct nk_user_font *font, float row_height)
 {
 retry:
@@ -986,8 +983,7 @@ nk_textedit_makeundo_replace(struct nk_text_edit *state, int where,
     }
 }
 
-NK_INTERN void
-nk_textedit_clear_state(struct nk_text_edit *state, enum nk_text_edit_type type,
+void nk_textedit_clear_state(struct nk_text_edit *state, enum nk_text_edit_type type,
     nk_plugin_filter filter)
 {
     /* reset the state to default */
@@ -1056,13 +1052,8 @@ nk_textedit_free(struct nk_text_edit *state)
     if (!state) return;
     nk_str_free(&state->string);
 }
-#define nk_widget_state_reset(s)\
-    if ((*(s)) & NK_WIDGET_STATE_MODIFIED)\
-        (*(s)) = NK_WIDGET_STATE_INACTIVE|NK_WIDGET_STATE_MODIFIED;\
-    else (*(s)) = NK_WIDGET_STATE_INACTIVE;
 
-NK_INTERN void
-nk_widget_text(struct nk_command_buffer *o, struct nk_rect b,
+void nk_widget_text(struct nk_command_buffer *o, struct nk_rect b,
     const char *string, int len, const struct nk_text *t,
     nk_flags a, const struct nk_user_font *f)
 {

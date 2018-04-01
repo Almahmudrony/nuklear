@@ -1,8 +1,7 @@
 #include "nuklear.h"
 #include "nuklear_internal.h"
 
-NK_INTERN void
-nk_draw_symbol(struct nk_command_buffer *out, enum nk_symbol_type type,
+void nk_draw_symbol(struct nk_command_buffer *out, enum nk_symbol_type type,
     struct nk_rect content, struct nk_color background, struct nk_color foreground,
     float border_width, const struct nk_user_font *font)
 {
@@ -55,8 +54,7 @@ nk_draw_symbol(struct nk_command_buffer *out, enum nk_symbol_type type,
     }
 }
 
-NK_INTERN int
-nk_button_behavior(nk_flags *state, struct nk_rect r,
+int nk_button_behavior(nk_flags *state, struct nk_rect r,
     const struct nk_input *i, enum nk_button_behavior behavior)
 {
     int ret = 0;
@@ -154,8 +152,7 @@ nk_draw_button_text(struct nk_command_buffer *out,
     nk_widget_text(out, *content, txt, len, &text, text_alignment, font);
 }
 
-NK_INTERN int
-nk_do_button_text(nk_flags *state,
+int nk_do_button_text(nk_flags *state,
     struct nk_command_buffer *out, struct nk_rect bounds,
     const char *string, int len, nk_flags align, enum nk_button_behavior behavior,
     const struct nk_style_button *style, const struct nk_input *in,
@@ -179,8 +176,7 @@ nk_do_button_text(nk_flags *state,
     return ret;
 }
 
-NK_INTERN void
-nk_draw_button_symbol(struct nk_command_buffer *out,
+void nk_draw_button_symbol(struct nk_command_buffer *out,
     const struct nk_rect *bounds, const struct nk_rect *content,
     nk_flags state, const struct nk_style_button *style,
     enum nk_symbol_type type, const struct nk_user_font *font)
@@ -202,8 +198,7 @@ nk_draw_button_symbol(struct nk_command_buffer *out,
     nk_draw_symbol(out, type, *content, bg, sym, 1, font);
 }
 
-NK_INTERN int
-nk_do_button_symbol(nk_flags *state,
+int nk_do_button_symbol(nk_flags *state,
     struct nk_command_buffer *out, struct nk_rect bounds,
     enum nk_symbol_type symbol, enum nk_button_behavior behavior,
     const struct nk_style_button *style, const struct nk_input *in,
@@ -235,8 +230,7 @@ nk_draw_button_image(struct nk_command_buffer *out,
     nk_draw_image(out, *content, img, nk_white);
 }
 
-NK_INTERN int
-nk_do_button_image(nk_flags *state,
+int nk_do_button_image(nk_flags *state,
     struct nk_command_buffer *out, struct nk_rect bounds,
     struct nk_image img, enum nk_button_behavior b,
     const struct nk_style_button *style, const struct nk_input *in)
@@ -296,8 +290,7 @@ nk_draw_button_text_symbol(struct nk_command_buffer *out,
     nk_widget_text(out, *label, str, len, &text, NK_TEXT_CENTERED, font);
 }
 
-NK_INTERN int
-nk_do_button_text_symbol(nk_flags *state,
+int nk_do_button_text_symbol(nk_flags *state,
     struct nk_command_buffer *out, struct nk_rect bounds,
     enum nk_symbol_type symbol, const char *str, int len, nk_flags align,
     enum nk_button_behavior behavior, const struct nk_style_button *style,
@@ -355,8 +348,7 @@ nk_draw_button_text_image(struct nk_command_buffer *out,
     nk_draw_image(out, *image, img, nk_white);
 }
 
-NK_INTERN int
-nk_do_button_text_image(nk_flags *state,
+int nk_do_button_text_image(nk_flags *state,
     struct nk_command_buffer *out, struct nk_rect bounds,
     struct nk_image img, const char* str, int len, nk_flags align,
     enum nk_button_behavior behavior, const struct nk_style_button *style,

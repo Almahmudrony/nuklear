@@ -1,4 +1,5 @@
 #include "nuklear.h"
+#include "nuklear_internal.h"
 
 NK_INTERN int
 nk_menu_begin(struct nk_context *ctx, struct nk_window *win,

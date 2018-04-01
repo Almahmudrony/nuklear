@@ -111,8 +111,7 @@ nk_draw_scrollbar(struct nk_command_buffer *out, nk_flags state,
     } else nk_draw_image(out, *scroll, &cursor->data.image, nk_white);
 }
 
-NK_INTERN float
-nk_do_scrollbarv(nk_flags *state,
+float nk_do_scrollbarv(nk_flags *state,
     struct nk_command_buffer *out, struct nk_rect scroll, int has_scrolling,
     float offset, float target, float step, float button_pixel_inc,
     const struct nk_style_scrollbar *style, struct nk_input *in,
@@ -201,8 +200,7 @@ nk_do_scrollbarv(nk_flags *state,
     return scroll_offset;
 }
 
-NK_INTERN float
-nk_do_scrollbarh(nk_flags *state,
+float nk_do_scrollbarh(nk_flags *state,
     struct nk_command_buffer *out, struct nk_rect scroll, int has_scrolling,
     float offset, float target, float step, float button_pixel_inc,
     const struct nk_style_scrollbar *style, struct nk_input *in,

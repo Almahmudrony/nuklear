@@ -111,8 +111,7 @@ nk_image_is_subimage(const struct nk_image* img)
     return !(img->w == 0 && img->h == 0);
 }
 
-NK_INTERN void
-nk_unify(struct nk_rect *clip, const struct nk_rect *a, float x0, float y0,
+void nk_unify(struct nk_rect *clip, const struct nk_rect *a, float x0, float y0,
     float x1, float y1)
 {
     NK_ASSERT(a);
@@ -162,8 +161,7 @@ nk_triangle_from_direction(struct nk_vec2 *result, struct nk_rect r,
     }
 }
 
-NK_INTERN int
-nk_text_clamp(const struct nk_user_font *font, const char *text,
+int nk_text_clamp(const struct nk_user_font *font, const char *text,
     int text_len, float space, int *glyphs, float *text_width,
     nk_rune *sep_list, int sep_count)
 {

@@ -286,16 +286,14 @@ nk_start_buffer(struct nk_context *ctx, struct nk_command_buffer *buffer)
     buffer->clip = nk_null_rect;
 }
 
-NK_INTERN void
-nk_start(struct nk_context *ctx, struct nk_window *win)
+void nk_start(struct nk_context *ctx, struct nk_window *win)
 {
     NK_ASSERT(ctx);
     NK_ASSERT(win);
     nk_start_buffer(ctx, &win->buffer);
 }
 
-NK_INTERN void
-nk_start_popup(struct nk_context *ctx, struct nk_window *win)
+void nk_start_popup(struct nk_context *ctx, struct nk_window *win)
 {
     struct nk_popup_buffer *buf;
     NK_ASSERT(ctx);
@@ -311,8 +309,7 @@ nk_start_popup(struct nk_context *ctx, struct nk_window *win)
     buf->active = nk_true;
 }
 
-NK_INTERN void
-nk_finish_popup(struct nk_context *ctx, struct nk_window *win)
+void nk_finish_popup(struct nk_context *ctx, struct nk_window *win)
 {
     struct nk_popup_buffer *buf;
     NK_ASSERT(ctx);
@@ -333,8 +330,7 @@ nk_finish_buffer(struct nk_context *ctx, struct nk_command_buffer *buffer)
     buffer->end = ctx->memory.allocated;
 }
 
-NK_INTERN void
-nk_finish(struct nk_context *ctx, struct nk_window *win)
+void nk_finish(struct nk_context *ctx, struct nk_window *win)
 {
     struct nk_popup_buffer *buf;
     struct nk_command *parent_last;

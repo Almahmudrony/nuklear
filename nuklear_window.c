@@ -106,8 +106,7 @@ nk_insert_window(struct nk_context *ctx, struct nk_window *win,
     ctx->count++;
 }
 
-NK_INTERN void
-nk_remove_window(struct nk_context *ctx, struct nk_window *win)
+void nk_remove_window(struct nk_context *ctx, struct nk_window *win)
 {
     if (win == ctx->begin || win == ctx->end) {
         if (win == ctx->begin) {

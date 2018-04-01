@@ -70,8 +70,7 @@ nk_panel_is_nonblock(enum nk_panel_type type)
     return (type & NK_PANEL_SET_NONBLOCK)?1:0;
 }
 
-NK_INTERN int
-nk_panel_begin(struct nk_context *ctx, const char *title, enum nk_panel_type panel_type)
+int nk_panel_begin(struct nk_context *ctx, const char *title, enum nk_panel_type panel_type)
 {
     struct nk_input *in;
     struct nk_window *win;
@@ -292,8 +291,7 @@ nk_panel_begin(struct nk_context *ctx, const char *title, enum nk_panel_type pan
     return !(layout->flags & NK_WINDOW_HIDDEN) && !(layout->flags & NK_WINDOW_MINIMIZED);
 }
 
-NK_INTERN void
-nk_panel_end(struct nk_context *ctx)
+void nk_panel_end(struct nk_context *ctx)
 {
     struct nk_input *in;
     struct nk_window *window;
@@ -598,8 +596,7 @@ nk_create_panel(struct nk_context *ctx)
     return &elem->data.pan;
 }
 
-NK_INTERN void
-nk_free_panel(struct nk_context *ctx, struct nk_panel *pan)
+void nk_free_panel(struct nk_context *ctx, struct nk_panel *pan)
 {
     union nk_page_data *pd = NK_CONTAINER_OF(pan, union nk_page_data, pan);
     struct nk_page_element *pe = NK_CONTAINER_OF(pd, struct nk_page_element, data);

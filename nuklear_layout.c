@@ -587,8 +587,7 @@ nk_layout_space_rect_to_local(struct nk_context *ctx, struct nk_rect ret)
     return ret;
 }
 
-NK_INTERN void
-nk_panel_alloc_row(const struct nk_context *ctx, struct nk_window *win)
+void nk_panel_alloc_row(const struct nk_context *ctx, struct nk_window *win)
 {
     struct nk_panel *layout = win->layout;
     struct nk_vec2 spacing = ctx->style.window.spacing;
@@ -727,8 +726,7 @@ nk_layout_widget_space(struct nk_rect *bounds, const struct nk_context *ctx,
     bounds->x -= (float)*layout->offset_x;
 }
 
-NK_INTERN void
-nk_panel_alloc_space(struct nk_rect *bounds, const struct nk_context *ctx)
+void nk_panel_alloc_space(struct nk_rect *bounds, const struct nk_context *ctx)
 {
     struct nk_window *win;
     struct nk_panel *layout;
@@ -750,8 +748,7 @@ nk_panel_alloc_space(struct nk_rect *bounds, const struct nk_context *ctx)
     layout->row.index++;
 }
 
-NK_INTERN void
-nk_layout_peek(struct nk_rect *bounds, struct nk_context *ctx)
+void nk_layout_peek(struct nk_rect *bounds, struct nk_context *ctx)
 {
     float y;
     int index;

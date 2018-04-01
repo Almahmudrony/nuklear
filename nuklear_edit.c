@@ -140,8 +140,7 @@ nk_edit_draw_text(struct nk_command_buffer *out,
     }}
 }
 
-NK_INTERN nk_flags
-nk_do_edit(nk_flags *state, struct nk_command_buffer *out,
+nk_flags nk_do_edit(nk_flags *state, struct nk_command_buffer *out,
     struct nk_rect bounds, nk_flags flags, nk_plugin_filter filter,
     struct nk_text_edit *edit, const struct nk_style_edit *style,
     struct nk_input *in, const struct nk_user_font *font)

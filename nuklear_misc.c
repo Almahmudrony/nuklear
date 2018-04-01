@@ -1,4 +1,5 @@
 #include "nuklear.h"
+#include "nuklear_internal.h"
 
 NK_API void
 nk_spacing(struct nk_context *ctx, int cols)

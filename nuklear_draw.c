@@ -1,8 +1,7 @@
 #include "nuklear.h"
 #include "nuklear_internal.h"
 
-NK_INTERN void
-nk_command_buffer_init(struct nk_command_buffer *cmdbuf,
+void nk_command_buffer_init(struct nk_command_buffer *cmdbuf,
     struct nk_buffer *buffer, enum nk_command_clipping clip)
 {
     NK_ASSERT(cmdbuf);
@@ -15,8 +14,7 @@ nk_command_buffer_init(struct nk_command_buffer *cmdbuf,
     cmdbuf->last = buffer->allocated;
 }
 
-NK_INTERN void
-nk_command_buffer_reset(struct nk_command_buffer *buffer)
+void nk_command_buffer_reset(struct nk_command_buffer *buffer)
 {
     NK_ASSERT(buffer);
     if (!buffer) return;

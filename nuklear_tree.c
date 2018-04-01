@@ -1,8 +1,7 @@
 #include "nuklear.h"
 #include "nuklear_internal.h"
 
-NK_INTERN int
-nk_tree_state_base(struct nk_context *ctx, enum nk_tree_type type,
+int nk_tree_state_base(struct nk_context *ctx, enum nk_tree_type type,
     struct nk_image *img, const char *title, enum nk_collapse_states *state)
 {
     struct nk_window *win;
